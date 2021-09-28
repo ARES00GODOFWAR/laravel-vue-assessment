@@ -20,7 +20,6 @@
                             <td>{{link.title}}</td>
                             <td>
                                 <button class="btn btn-primary" @click="checkIfChecked(link)">Open Link</button>
-                                <!-- <a @click="" :id="`sumn${link.id}`" :href="link.link">Sumn</a> -->
                             </td>
                             <td>
                                 <span>
@@ -125,21 +124,17 @@
             },
             async deletelink(link) {
                 try {
-
                     await this.$store.dispatch("admin/deleteLink", link);
-
                     this.$notify({
                         group: "success",
                         text: `Link has been successfully deleted`,
                     });
                     return await this.$store.dispatch("admin/loadLinks");
-
                 } catch (e) {
                     this.$notify({
                         group: "error",
                         text: "An error has occurred deleting this Link",
                     });
-                    console.log(e.message);
                     return await this.$store.dispatch("admin/loadLinks");
                 }
             }
@@ -152,8 +147,6 @@
         },
         async mounted() {
             await this.$store.dispatch("admin/loadLinks");
-
-            console.log(this.links);
 
             $(document).ready(function () {
                 $('#table_id').DataTable({

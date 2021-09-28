@@ -63,6 +63,8 @@
                         group: "success",
                         text: `Pdf has been updated successfully`,
                     });
+                    this.title = ''
+                    this.file = ''
 
                 } catch (error) {
                     this.$notify({

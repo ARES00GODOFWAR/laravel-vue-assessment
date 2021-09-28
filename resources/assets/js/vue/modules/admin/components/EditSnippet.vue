@@ -38,12 +38,6 @@
         props: {
             snippet: Object
         },
-        methods: {
-            // updateSnippet: async function () {
-            //  this.$emit('update',this.snippet.id,this.snippet.title, this.snippet.description, this.snippet.snippet) 
-            // },
-        },
-
     }
 
 </script>

@@ -11,7 +11,8 @@
                         <svg @click="copyEvent(sumn.id)" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                             stroke-linecap="round" stroke-linejoin="round" class="feather clipboard feather-clipboard">
-                            <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+                            <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2">
+                            </path>
                             <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
                         </svg>
                     </div>
@@ -90,16 +91,19 @@
                 inputElement.select();
                 navigator.clipboard.writeText(elementText);
                 inputElement.parentNode.removeChild(inputElement)
-            },
-            async checkIfChecked(links) {
 
+                this.$notify({
+                    group: "success",
+                    text: `Snippet copied successfully`,
+                });
+            },
+            checkIfChecked(links) {
                 if (links.tab) {
                     window.open(links.link, '_blank');
                     return false
                 } else {
                     window.open(links.link, '_self');
                 }
-
             },
         },
         computed: {
@@ -117,7 +121,6 @@
             await this.$store.dispatch("admin/loadPdfs");
 
             await this.getSumn()
-            console.log(this.info);
         }
     }
 

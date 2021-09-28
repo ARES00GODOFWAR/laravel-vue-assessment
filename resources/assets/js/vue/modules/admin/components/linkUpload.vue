@@ -40,22 +40,17 @@
         },
         methods: {
             async saveLink() {
-
                 try {
-
-                    // let data = new FormData();
-                    // data.append('id', id);
-                    // data.append('title', updatedTitle);
-                    // data.append('link', updatedLink);
-                    // data.append('tab', updatedTab);
                     await this.$store.dispatch("admin/saveLinks", this.form);
-
-                    // axios.post('/api/update_admin_links', data)
 
                     this.$notify({
                         group: "success",
                         text: `Pdf has been updated successfully`,
                     });
+                    this.form.title = ''
+                    this.form.link = ''
+                    this.form.tab = 0
+
 
                 } catch (error) {
                     this.$notify({
@@ -67,9 +62,6 @@
             },
 
         },
-        async mounted() {
-            
-        }
 
     }
 

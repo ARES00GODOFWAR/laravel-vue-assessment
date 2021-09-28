@@ -81,9 +81,6 @@
 
                     this.file = updatedfile
 
-                    console.log(this.file);
-                    console.log(updatedTitle);
-
                     let data = new FormData();
                     data.append('id', id);
                     data.append('file', this.file);
@@ -124,7 +121,6 @@
                         group: "error",
                         text: "An error has occurred deleting this Pdf",
                     });
-                    console.log(e.message);
                     return await this.$store.dispatch("admin/loadPdfs");
                 }
             }
@@ -137,8 +133,6 @@
         },
         async mounted() {
             await this.$store.dispatch("admin/loadPdfs");
-
-            console.log(this.pdfs);
 
             $(document).ready(function () {
                 $('#table_id').DataTable({

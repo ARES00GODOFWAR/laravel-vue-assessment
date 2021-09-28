@@ -104,7 +104,6 @@
                         group: "error",
                         text: `An error has occurred updating snippet`,
                     });
-                    console.log(e.message);
 
                     return await this.$store.dispatch("admin/loadSnippets");
 
@@ -126,7 +125,6 @@
                         group: "error",
                         text: "An error has occurred deleting this Snippet",
                     });
-                    console.log(e.message);
                     return await this.$store.dispatch("admin/loadSnippets");
                 }
             }
